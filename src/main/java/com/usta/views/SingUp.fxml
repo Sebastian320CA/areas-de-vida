@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usta.controllers.SingUpController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@Images/12.jpg" />
+
+         </image>
+      </ImageView>
+      <Pane layoutX="62.0" layoutY="94.0" prefHeight="374.0" prefWidth="677.0" styleClass="pan" stylesheets="@css/Styles.css">
+         <children>
+            <Label layoutY="219.0" prefHeight="28.0" prefWidth="95.0" styleClass="label-subtitle" stylesheets="@css/Styles.css" text="Rol" textFill="#030303">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutY="105.0" prefHeight="28.0" prefWidth="95.0" styleClass="label-subtitle" stylesheets="@css/Styles.css" text="Name" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="documentField" layoutX="456.0" layoutY="101.0" prefHeight="35.0" prefWidth="168.0" />
+            <TextField fx:id="phoneField" layoutX="456.0" layoutY="158.0" prefHeight="35.0" prefWidth="168.0" styleClass="text-field" />
+            <ComboBox fx:id="userTypeBox" layoutX="90.0" layoutY="215.0" prefHeight="35.0" prefWidth="168.0" />
+            <Label layoutX="273.0" layoutY="101.0" prefHeight="35.0" prefWidth="209.0" styleClass="label-subtitle" stylesheets="@css/Styles.css" text="Num of document" textFill="#222121">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutY="162.0" prefHeight="28.0" prefWidth="95.0" styleClass="label-subtitle" stylesheets="@css/Styles.css" text="Email" textFill="#070707">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="320.0" layoutY="163.0" prefHeight="28.0" prefWidth="95.0" styleClass="label-subtitle" stylesheets="@css/Styles.css" text="Phone" textFill="#0d0d0d">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="314.0" layoutY="215.0" prefHeight="35.0" prefWidth="108.0" styleClass="label-subtitle" stylesheets="@css/Styles.css" text="Password" textFill="#171717">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField" layoutX="456.0" layoutY="215.0" prefHeight="35.0" prefWidth="168.0" />
+            <TextField fx:id="nameField" layoutX="90.0" layoutY="101.0" prefHeight="35.0" prefWidth="168.0" styleClass="text-field" />
+            <TextField fx:id="emailField" layoutX="90.0" layoutY="159.0" prefHeight="35.0" prefWidth="168.0" />
+            <Button fx:id="saveButton" layoutX="377.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleSave" styleClass="pan" text="Save" />
+            <Button fx:id="cancelButton" layoutX="227.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleCancel" styleClass="pan" text="Cancel" />
+         </children>
+      </Pane>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="65.0" prefWidth="162.0" text="ECOGROW">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font></Label>
+      <Label layoutX="226.0" layoutY="47.0" prefHeight="53.0" prefWidth="379.0" text="ENTER YOUR DETAILS" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

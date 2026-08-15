@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToolBar?>
+
+<ToolBar orientation="VERTICAL" prefHeight="282.0" prefWidth="191.0" stylesheets="@../css/Styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <items>
+      <Button mnemonicParsing="false" onAction="#SwithcToLivingAreas" text="Living Areas" />
+      <Button mnemonicParsing="false" onAction="#SwitchToForestCensuses" text="Forest Censuses" />
+      <Button mnemonicParsing="false" onAction="#SwitchToPlantingActivities" text="Planting Activities" />
+      <Button mnemonicParsing="false" onAction="#SwitchToDocumentation" text="Documentation " />
+   </items>
+</ToolBar>
