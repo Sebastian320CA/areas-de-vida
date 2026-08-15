@@ -4188,3 +4188,80 @@ INFO: Unsupported notification method: $/setTrace
 2026.06.27 22:11:54 INFO  Memory monitor stopped
 2026.06.27 22:11:54 INFO  shutting down Metals
 2026.06.27 22:11:54 INFO  Exiting server
+2026.08.15 14:07:24 INFO  Started: Metals version 1.6.8 in folders '/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect' for client Visual Studio Code 1.133.0.
+2026.08.15 14:07:24 INFO  Memory monitor started
+2026.08.15 14:07:27 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.08.15 14:07:27 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+Aug 15, 2026 2:07:29 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2026.08.15 14:07:29 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+2026.08.15 14:07:29 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+2026.08.15 14:07:29 INFO  Attempting to connect to the build server...
+2026.08.15 14:07:29 INFO  No running Bloop server found, starting one.
+2026.08.15 14:07:30 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+2026.08.15 14:07:33 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+2026.08.15 14:07:41 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+2026.08.15 14:07:44 INFO  no build target found for /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/com/usta/App.java. Using fallback presentation compiler.
+2026.08.15 14:07:44 INFO  Starting compilation server
+2026.08.15 14:07:46 INFO  Tracing is disabled for protocol BSP. To enable tracing of incoming and outgoing JSON messages, create an empty file at /home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/.metals/bsp.trace.json or /home/sebastian/.cache/metals/bsp.trace.json
+2026.08.15 14:07:47 INFO  time: Connected to build server in 17s
+2026.08.15 14:07:47 INFO  Connected to Build server: Bloop v2.1.1
+2026.08.15 14:07:48 INFO  time: Imported build in 0.33s
+2026.08.15 14:07:50 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-21-openjdk/src.zip, /usr/lib/jvm/java-21-openjdk/lib/src.zip. Java symbols will not be available.
+2026.08.15 14:07:57 INFO  time: indexed workspace in 9.22s
+2026.08.15 14:07:58 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:07:59 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:07:59 WARN  javac exited with exit code 1
+2026.08.15 14:07:59 INFO  time: compiled veterinaria in 1.41s
+Aug 15, 2026 2:09:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 36
+2026.08.15 14:09:45 INFO  Created report: Optional[file:///home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java]
+2026.08.15 14:09:45 INFO  empty definition using pc, found symbol in pc:  (full report at: "/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/.metals/.reports/metals-full/2026-08-15/r_empty-definition_(veterinaria)_14-09-45-586.md")
+Aug 15, 2026 2:09:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 44
+Aug 15, 2026 2:09:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 45
+2026.08.15 14:09:48 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:09:50 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:09:50 WARN  javac exited with exit code 1
+2026.08.15 14:09:50 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:09:50 INFO  time: compiled veterinaria in 2.09s
+2026.08.15 14:09:50 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:09:52 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:09:52 WARN  javac exited with exit code 1
+2026.08.15 14:09:52 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:09:52 INFO  time: compiled veterinaria in 1.73s
+2026.08.15 14:10:12 INFO  Created report: Optional[file:///home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java]
+2026.08.15 14:10:12 INFO  empty definition using pc, found symbol in pc:  (full report at: "/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/.metals/.reports/metals-full/2026-08-15/r_empty-definition_(veterinaria)_14-10-12-455.md")
+2026.08.15 14:10:13 INFO  Created report: Optional[file:///home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java]
+2026.08.15 14:10:13 INFO  empty definition using pc, found symbol in pc:  (full report at: "/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/.metals/.reports/metals-full/2026-08-15/r_empty-definition_(veterinaria)_14-10-13-193.md")
+2026.08.15 14:12:20 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:12:22 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:22 WARN  javac exited with exit code 1
+2026.08.15 14:12:22 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:22 INFO  time: compiled veterinaria in 1.46s
+2026.08.15 14:12:26 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:12:28 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:28 WARN  javac exited with exit code 1
+2026.08.15 14:12:28 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:28 INFO  time: compiled veterinaria in 1.68s
+2026.08.15 14:12:28 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:12:30 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:30 WARN  javac exited with exit code 1
+2026.08.15 14:12:30 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:30 INFO  time: compiled veterinaria in 1.39s
+2026.08.15 14:12:34 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:12:35 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:35 WARN  javac exited with exit code 1
+2026.08.15 14:12:35 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:35 INFO  time: compiled veterinaria in 1.33s
+2026.08.15 14:12:35 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:12:37 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:37 WARN  javac exited with exit code 1
+2026.08.15 14:12:37 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:37 INFO  time: compiled veterinaria in 1.5s
+2026.08.15 14:12:37 INFO  compiling veterinaria (30 java sources)
+2026.08.15 14:12:39 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:39 WARN  javac exited with exit code 1
+2026.08.15 14:12:39 WARN  Invalid text document uri received from build server: file:///home/sebastian/.local/share/scalacli/bloop/warning:%5Boptions%5D%20system%20modules%20path%20not%20set%20in%20conjunction%20with%20-source%2011%0A/home/sebastian/Documents/2024-2-master/Java/ProyectoFinal/prubaproyect/prubaproyect/src/main/java/module-info.java
+2026.08.15 14:12:39 INFO  time: compiled veterinaria in 1.55s
