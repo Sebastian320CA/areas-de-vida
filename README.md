@@ -1,221 +1,408 @@
 # EcoGrow - Sistema de Gestión de Reforestación y Áreas de Vida
 
-![Java](https://shields.io)
-![Design Patterns](https://shields.io)
-![Linux](https://shields.io)
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
+![JavaFX](https://img.shields.io/badge/JavaFX-21-5382A1?style=for-the-badge\&logo=java\&logoColor=white)
+![Scene Builder](https://img.shields.io/badge/Scene%20Builder-FXML-007ACC?style=for-the-badge)
+![Design Patterns](https://img.shields.io/badge/Design%20Patterns-GoF-8E44AD?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)
+![phpMyAdmin](https://img.shields.io/badge/phpMyAdmin-Database%20Management-6C78AF?style=for-the-badge\&logo=phpmyadmin\&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge\&logo=linux\&logoColor=black)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)
 
-**EcoGrow** es una solución de software orientada a la gestión ambiental y la reforestación controlada. Su objetivo principal es resolver un problema crítico en la gestión ecológica: la falta de herramientas centralizadas para planificar, ejecutar y auditar proyectos de siembra de árboles en zonas vulnerables.
 
-Desarrollado como proyecto integrador académico de segundo semestre, destaca por el uso de buenas prácticas de ingeniería de software, control de accesos por roles y la implementación de patrones de diseño GoF (*Gang of Four*).
+**EcoGrow** es una aplicación de escritorio desarrollada para apoyar la gestión ambiental y el seguimiento de procesos de reforestación y conservación de áreas de vida.
 
----
+El sistema permite centralizar diferentes procesos relacionados con la gestión de usuarios, áreas de vida, taxonomía de árboles, actividades de plantación, censos forestales y documentación asociada.
 
-##  Características Clave (Impacto Técnico)
-*   **Autenticación y Control de Roles:** Registro seguro de usuarios diferenciando privilegios del sistema (ej. `environmental authority`).
-*   **Gestión de Áreas de Vida:** Mapeo, dimensionamiento (en hectáreas/metros cuadrados) y clasificación según su estado de conservación (`Critical`, `Endangered`, `Vulnerable`, `Stable`, `Improving`, `At Risk`).
-*   **Trazabilidad de Plantaciones:** Registro histórico de actividades de reforestación enlazadas directamente a taxonomías específicas de árboles y zonas geográficas.
-*   **Módulo de Observabilidad:** Censos forestales integrados para evaluar el porcentaje de cobertura vegetal y la evolución del ecosistema en tiempo real.
-
----
-
-## Arquitectura y Patrones de Diseño Aplicados
-
-Para garantizar que el sistema sea fácil de mantener y escalar, se implementaron dos patrones de diseño estructurales y de creación fundamentales en el desarrollo de software profesional:
-
-### 1. Patrón de Diseño: Singleton (Instancia Única)
-El patrón **Singleton** se utilizó principalmente en la clase encargada de gestionar la conexión a la base de datos (por ejemplo, `DatabaseConnection`).
-
-*   **¿Por qué se usó?** En aplicaciones reales, abrir una conexión nueva a la base de datos por cada clic o petición del usuario destruye el rendimiento del servidor.
-*   **¿Cómo funciona en el código?** El patrón restringe la creación de objetos de esa clase a **una sola instancia global**. Cada vez que un controlador o repositorio necesita comunicarse con MariaDB, el sistema reutiliza la misma conexión activa en memoria, optimizando drásticamente el uso de recursos y memoria en el entorno local.
-
-### 2. Patrón de Diseño: Facade (Fachada)
-El patrón **Facade** se aplicó en la capa de servicios o controladores lógicos (por ejemplo, una clase unificada como `EcoGrowFacade` o el controlador principal).
-
-*   **¿Por qué se usó?** La lógica detrás de registrar una plantación requiere tocar múltiples tablas a la vez: verificar el usuario, validar el estado del área de vida y buscar la taxonomía del árbol. Mostrar toda esa complejidad al flujo principal de la interfaz de usuario hace que el código sea difícil de leer.
-*   **¿Cómo funciona en el código?** Este patrón actúa como una **interfaz simplificada y unificada** frente a un subsistema complejo. La interfaz de usuario solo llama a un método sencillo (ej. `facade.registrarNuevaPlantacion(...)`), y la Fachada se encarga de coordinar internamente todas las operaciones con los repositorios y modelos de forma oculta para el cliente.
+El proyecto fue desarrollado como proyecto integrador académico, aplicando principios de ingeniería de software, programación orientada a objetos, acceso a bases de datos y patrones de diseño **GoF (Gang of Four)**.
 
 ---
 
-## Stack Tecnológico
-*   **Lenguaje:** Java 21 (JavaFx)
-*   **Entorno de Desarrollo Nativo:** Arch Linux
-*   **Motor de Base de Datos:** MySQL (Administrado mediante phpMyAdmin)
-*   **Gestión de Versiones:** Git & GitHub
----
+## Objetivos
 
-## Modelo Relacional de Datos
-La base de datos se modeló de forma estructurada asegurando la integridad referencial mediante restricciones de claves foráneas (`FOREIGN KEY`) y limpiezas lógicas en cascada:
+Los principales objetivos de EcoGrow son:
 
-*   **`users`**: Control de credenciales, datos de contacto y tipificación de roles.
-*   **`living_areas`**: Zonas geográficas destinadas a la conservación ecológica.
-*   **`tree_taxonomy`**: Diccionario botánico sistemático (Especie, Género, Familia y Nombre común).
-*   **`planting_activities`**: Relación multifactorial que asocia qué árbol fue plantado, en qué área de vida y en qué fecha exacta.
-*   **`forest_censuses`**: Métricas de rendimiento ambiental (cobertura vegetal y estado de salud general).
-*   **`documentation`**: Soporte legal, autoridades emisoras y documentación oficial que valida la protección de las áreas de vida.
+* Gestionar usuarios y sus respectivos roles dentro del sistema.
+* Administrar áreas de vida destinadas a la conservación.
+* Registrar y consultar información relacionada con especies de árboles.
+* Gestionar actividades de plantación y reforestación.
+* Registrar censos forestales para realizar seguimiento al estado de las áreas.
+* Gestionar documentación relacionada con las áreas de vida.
+* Mantener organizada la información mediante una base de datos relacional.
+* Aplicar patrones de diseño para mejorar la organización y mantenibilidad del software.
 
 ---
 
-## Arquitectura del Proyecto (Estructura de Carpetas)
-A continuación se presenta la jerarquía limpia del código fuente, organizada para separar los datos, la lógica operativa bajo los patrones mencionados y la interfaz de usuario:
+## Características principales
 
-```└── prubaproyect
-    ├── ecogrow (1).sql
-    ├── effective-pom.xml
-    ├── pom.xml
-    ├── README.md
-    ├── src
-    │   └── main
-    │       └── java
-    │           ├── com
-    │           │   └── usta
-    │           │       ├── App.java
-    │           │       ├── controllers
-    │           │       │   ├── DashBoardController.java
-    │           │       │   ├── DocumentationController.java
-    │           │       │   ├── ForestCensusesController.java
-    │           │       │   ├── FrontPageController.java
-    │           │       │   ├── LivingAreasController.java
-    │           │       │   ├── LoginController.java
-    │           │       │   ├── MenuController.java
-    │           │       │   ├── PanelController.java
-    │           │       │   ├── PlantingActivitiesController.java
-    │           │       │   ├── SingUpController.java
-    │           │       │   └── TreeTaxonomyController.java
-    │           │       ├── facade
-    │           │       │   └── UserFacade.java
-    │           │       ├── models
-    │           │       │   ├── documentations
-    │           │       │   │   ├── DocumentationImplDAO.java
-    │           │       │   │   └── Documentation.java
-    │           │       │   ├── forestCensuses
-    │           │       │   │   ├── ForestCensusesImplDAO.java
-    │           │       │   │   └── ForestCensuses.java
-    │           │       │   ├── livingAreas
-    │           │       │   │   ├── LivingAreasImplDAO.java
-    │           │       │   │   └── LivingAreas.java
-    │           │       │   ├── plantingActivities
-    │           │       │   │   ├── PlantingActivitiesImplDAO.java
-    │           │       │   │   └── PlantingActivities.java
-    │           │       │   ├── treetaxonomy
-    │           │       │   │   ├── TreeTaxonomyImplDao.java
-    │           │       │   │   └── TreeTaxonomy.java
-    │           │       │   └── user
-    │           │       │       ├── UserImplDAO.java
-    │           │       │       └── User.java
-    │           │       ├── utils
-    │           │       │   ├── ConnectionManager.java
-    │           │       │   ├── GenericDao.java
-    │           │       │   ├── Session.java
-    │           │       │   └── Window.java
-    │           │       └── views
-    │           │           ├── css
-    │           │           │   └── Styles.css
-    │           │           ├── Dashboard.fxml
-    │           │           ├── Documentation.fxml
-    │           │           ├── ForestCensuses.fxml
-    │           │           ├── FrontPage.fxml
-    │           │           ├── Images
-    │           │           │   ├── 10.jpg
-    │           │           │   ├── 11.jpg
-    │           │           │   ├── 12.jpg
-    │           │           │   ├── 2.jpg
-    │           │           │   ├── 3.jpg
-    │           │           │   ├── 4.jpg
-    │           │           │   ├── 5.jpg
-    │           │           │   ├── 6.jpg
-    │           │           │   ├── 8.jpg
-    │           │           │   ├── 9.jpg
-    │           │           │   ├── key_13525410.png
-    │           │           │   ├── login.png
-    │           │           │   └── ONU-portada-1000x562.jpg
-    │           │           ├── LivingAreas.fxml
-    │           │           ├── login.fxml
-    │           │           ├── menu
-    │           │           │   ├── AdminMenu.fxml
-    │           │           │   └── UserMenu.fxml
-    │           │           ├── Panel.fxml
-    │           │           ├── PlantingActivities.fxml
-    │           │           ├── SingUp.fxml
-    │           │           └── tree.fxml
-    │           └── module-info.java
-    └── target
-        ├── bloop-bsp-clients-classes
-        │   ├── classes-Metals-EDEOlPmXQ-ukQwLuzgm74Q==
-        │   └── test-classes-Metals-EDEOlPmXQ-ukQwLuzgm74Q==
-        ├── bloop-internal-classes
-        ├── classes
-        │   ├── com
-        │   │   └── usta
-        │   │       ├── App.class
-        │   │       ├── controllers
-        │   │       │   ├── DashBoardController.class
-        │   │       │   ├── DocumentationController.class
-        │   │       │   ├── ForestCensusesController.class
-        │   │       │   ├── FrontPageController.class
-        │   │       │   ├── LivingAreasController.class
-        │   │       │   ├── LoginController.class
-        │   │       │   ├── MenuController.class
-        │   │       │   ├── PanelController.class
-        │   │       │   ├── PlantingActivitiesController.class
-        │   │       │   ├── SingUpController.class
-        │   │       │   └── TreeTaxonomyController.class
-        │   │       ├── facade
-        │   │       │   └── UserFacade.class
-        │   │       ├── models
-        │   │       │   ├── documentations
-        │   │       │   │   ├── Documentation.class
-        │   │       │   │   └── DocumentationImplDAO.class
-        │   │       │   ├── forestCensuses
-        │   │       │   │   ├── ForestCensuses.class
-        │   │       │   │   └── ForestCensusesImplDAO.class
-        │   │       │   ├── livingAreas
-        │   │       │   │   ├── LivingAreas.class
-        │   │       │   │   └── LivingAreasImplDAO.class
-        │   │       │   ├── plantingActivities
-        │   │       │   │   ├── PlantingActivities.class
-        │   │       │   │   └── PlantingActivitiesImplDAO.class
-        │   │       │   ├── treetaxonomy
-        │   │       │   │   ├── TreeTaxonomy.class
-        │   │       │   │   └── TreeTaxonomyImplDao.class
-        │   │       │   └── user
-        │   │       │       ├── User.class
-        │   │       │       └── UserImplDAO.class
-        │   │       ├── utils
-        │   │       │   ├── ConnectionManager.class
-        │   │       │   ├── GenericDao.class
-        │   │       │   ├── Session.class
-        │   │       │   └── Window.class
-        │   │       └── views
-        │   │           ├── css
-        │   │           │   └── Styles.css
-        │   │           ├── Dashboard.fxml
-        │   │           ├── Documentation.fxml
-        │   │           ├── ForestCensuses.fxml
-        │   │           ├── FrontPage.fxml
-        │   │           ├── Images
-        │   │           │   ├── 10.jpg
-        │   │           │   ├── 11.jpg
-        │   │           │   ├── 12.jpg
-        │   │           │   ├── 2.jpg
-        │   │           │   ├── 3.jpg
-        │   │           │   ├── 4.jpg
-        │   │           │   ├── 5.jpg
-        │   │           │   ├── 6.jpg
-        │   │           │   ├── 8.jpg
-        │   │           │   ├── 9.jpg
-        │   │           │   ├── key_13525410.png
-        │   │           │   ├── login.png
-        │   │           │   └── ONU-portada-1000x562.jpg
-        │   │           ├── LivingAreas.fxml
-        │   │           ├── login.fxml
-        │   │           ├── menu
-        │   │           │   ├── AdminMenu.fxml
-        │   │           │   └── UserMenu.fxml
-        │   │           ├── Panel.fxml
-        │   │           ├── PlantingActivities.fxml
-        │   │           ├── SingUp.fxml
-        │   │           └── tree.fxml
-        │   └── module-info.class
-        └── test-classes
+### Autenticación y gestión de usuarios
 
+El sistema cuenta con un módulo de usuarios que permite gestionar las credenciales y los diferentes roles de acceso.
+
+Entre sus funcionalidades se encuentran:
+
+* Inicio de sesión.
+* Registro de usuarios.
+* Gestión de roles.
+* Control de acceso a diferentes módulos.
+
+### Gestión de áreas de vida
+
+Permite administrar las áreas destinadas a la conservación y reforestación.
+
+Se puede almacenar información relacionada con:
+
+* Nombre del área.
+* Ubicación.
+* Dimensiones.
+* Estado de conservación.
+* Información asociada a la documentación del área.
+
+###  Taxonomía de árboles
+
+El sistema permite registrar y consultar información relacionada con las especies de árboles utilizadas en los procesos de reforestación.
+
+La información contempla diferentes niveles taxonómicos como:
+
+* Especie.
+* Género.
+* Familia.
+* Nombre común.
+
+### Actividades de plantación
+
+Permite registrar las actividades de reforestación realizadas en las diferentes áreas de vida.
+
+Cada actividad puede relacionar:
+
+* El árbol o especie utilizada.
+* El área donde se realizó la plantación.
+* La fecha de la actividad.
+* Información asociada a la actividad.
+
+### Censos forestales
+
+Permite registrar información relacionada con el seguimiento y estado de las áreas forestales.
+
+Entre los datos gestionados se encuentran métricas relacionadas con:
+
+* Cobertura vegetal.
+* Estado general del área.
+* Seguimiento de las condiciones del ecosistema.
+
+### Documentación
+
+Permite gestionar documentación relacionada con las áreas de vida, incluyendo información sobre:
+
+* Documentos oficiales.
+* Autoridades emisoras.
+* Información legal.
+* Soportes relacionados con la protección de las áreas.
+
+---
+
+## Arquitectura y patrones de diseño
+
+Para organizar el código y facilitar su mantenimiento, el proyecto utiliza una arquitectura basada en la separación de responsabilidades entre:
+
+* Controladores.
+* Modelos.
+* DAO.
+* Fachadas.
+* Utilidades.
+* Vistas.
+
+Además, se aplican patrones de diseño **GoF (Gang of Four)**.
+
+### 1. Singleton
+
+El patrón **Singleton** se utiliza en la gestión de recursos que requieren una instancia controlada, particularmente en componentes relacionados con la conexión y administración de la base de datos.
+
+En el proyecto existe la clase:
+
+```text
+ConnectionManager
 ```
+
+El objetivo es centralizar la gestión de la conexión y evitar que diferentes partes de la aplicación implementen de forma independiente la lógica de conexión a la base de datos.
+
+### 2. Facade
+
+El patrón **Facade (Fachada)** permite proporcionar una interfaz simplificada para interactuar con diferentes componentes del sistema.
+
+En el proyecto existe el paquete:
+
+```text
+facade/
+```
+
+y la clase:
+
+```text
+UserFacade.java
+```
+
+La fachada permite encapsular determinadas operaciones y reducir el acoplamiento entre la interfaz de usuario y la lógica interna del sistema.
+
+---
+
+## Tecnologías
+
+| Tecnología / Herramienta | Uso                                                 |
+| ------------------------ | --------------------------------------------------- |
+| **Java 21**              | Lenguaje principal de programación                  |
+| **JavaFX**               | Desarrollo de la interfaz gráfica                   |
+| **FXML**                 | Definición de las interfaces gráficas               |
+| **Scene Builder**        | Diseño visual de interfaces JavaFX                  |
+| **MySQL**                | Sistema gestor de base de datos                     |
+| **phpMyAdmin**           | Administración y gestión de la base de datos        |
+| **Maven**                | Gestión de dependencias y construcción del proyecto |
+| **Git**                  | Control de versiones                                |
+| **GitHub**               | Alojamiento y gestión del repositorio               |
+| **Linux / Arch Linux**   | Entorno de desarrollo                               |
+
+---
+
+## Base de datos
+
+EcoGrow utiliza **MySQL** como sistema gestor de base de datos.
+
+La administración de la base de datos se realiza mediante **phpMyAdmin**, facilitando tareas como:
+
+* Creación y modificación de tablas.
+* Administración de registros.
+* Gestión de relaciones.
+* Ejecución de consultas SQL.
+* Importación y exportación de bases de datos.
+
+El proyecto incluye el archivo:
+
+```text
+ecogrow (1).sql
+```
+
+que contiene la estructura y los datos correspondientes a la base de datos del proyecto.
+
+### Modelo relacional
+
+La base de datos está organizada mediante diferentes entidades relacionadas entre sí y utiliza claves foráneas para mantener la integridad referencial.
+
+Principales tablas:
+
+* **`users`** — Gestión de usuarios, credenciales y roles.
+* **`living_areas`** — Información de las áreas de vida.
+* **`tree_taxonomy`** — Información taxonómica de los árboles.
+* **`planting_activities`** — Registro de actividades de plantación.
+* **`forest_censuses`** — Registro de censos forestales.
+* **`documentation`** — Documentación relacionada con las áreas de vida.
+
+---
+
+## Interfaz gráfica
+
+La interfaz de usuario está desarrollada utilizando **JavaFX** y **FXML**.
+
+Los archivos FXML permiten separar la definición visual de la interfaz de la lógica implementada en Java.
+
+Para el diseño de las interfaces se utiliza **Scene Builder**, facilitando la creación y edición visual de los componentes JavaFX.
+
+La aplicación contiene diferentes vistas, entre ellas:
+
+* Login.
+* Registro de usuarios.
+* Dashboard.
+* Menú de usuario.
+* Menú de administrador.
+* Gestión de áreas de vida.
+* Gestión de actividades de plantación.
+* Gestión de taxonomía.
+* Censos forestales.
+* Documentación.
+
+---
+
+##  Estructura del proyecto
+
+La estructura principal del código fuente se organiza de la siguiente manera:
+
+```text
+prubaproyect/
+├── ecogrow (1).sql
+├── effective-pom.xml
+├── pom.xml
+├── README.md
+│
+└── src/
+    └── main/
+        └── java/
+            ├── com/
+            │   └── usta/
+            │       ├── App.java
+            │       │
+            │       ├── controllers/
+            │       │   ├── DashBoardController.java
+            │       │   ├── DocumentationController.java
+            │       │   ├── ForestCensusesController.java
+            │       │   ├── FrontPageController.java
+            │       │   ├── LivingAreasController.java
+            │       │   ├── LoginController.java
+            │       │   ├── MenuController.java
+            │       │   ├── PanelController.java
+            │       │   ├── PlantingActivitiesController.java
+            │       │   ├── SingUpController.java
+            │       │   └── TreeTaxonomyController.java
+            │       │
+            │       ├── facade/
+            │       │   └── UserFacade.java
+            │       │
+            │       ├── models/
+            │       │   ├── documentations/
+            │       │   ├── forestCensuses/
+            │       │   ├── livingAreas/
+            │       │   ├── plantingActivities/
+            │       │   ├── treetaxonomy/
+            │       │   └── user/
+            │       │
+            │       ├── utils/
+            │       │   ├── ConnectionManager.java
+            │       │   ├── GenericDao.java
+            │       │   ├── Session.java
+            │       │   └── Window.java
+            │       │
+            │       └── views/
+            │           ├── css/
+            │           │   └── Styles.css
+            │           ├── Images/
+            │           ├── Dashboard.fxml
+            │           ├── Documentation.fxml
+            │           ├── ForestCensuses.fxml
+            │           ├── FrontPage.fxml
+            │           ├── LivingAreas.fxml
+            │           ├── login.fxml
+            │           ├── Panel.fxml
+            │           ├── PlantingActivities.fxml
+            │           ├── SingUp.fxml
+            │           └── tree.fxml
+            │
+            └── module-info.java
+```
+
+## Instalación y ejecución
+
+### Requisitos
+
+Antes de ejecutar el proyecto se recomienda tener instalado:
+
+* Java JDK 21.
+* JavaFX.
+* Maven.
+* MySQL.
+* phpMyAdmin.
+* Git.
+
+### 1. Clonar el repositorio
+
+```bash
+git clone
+```
+
+### 2. Crear la base de datos
+
+Abrir phpMyAdmin y crear/importar la base de datos utilizando el archivo:
+
+```text
+ecogrow (1).sql
+```
+
+### 3. Configurar la conexión
+
+Configurar los parámetros de conexión de acuerdo con el entorno local:
+
+```text
+Host
+Puerto
+Usuario
+Contraseña
+Base de datos
+```
+
+### 4. Compilar el proyecto
+
+Desde la carpeta raíz del proyecto:
+
+```bash
+mvn clean install
+```
+
+### 5. Ejecutar la aplicación
+
+Ejecutar la clase principal:
+
+```text
+com.usta.App
+```
+
+---
+
+
+##  Principios aplicados
+
+Durante el desarrollo se tuvieron en cuenta diferentes principios de programación y diseño de software:
+
+* Programación Orientada a Objetos.
+* Separación de responsabilidades.
+* Reutilización de código.
+* Encapsulamiento.
+* Abstracción.
+* Acceso estructurado a datos mediante DAO.
+* Aplicación de patrones de diseño GoF.
+* Separación entre lógica de aplicación e interfaz gráfica.
+
+---
+
+## Proyecto académico
+
+**EcoGrow** fue desarrollado como proyecto académico integrador con el propósito de aplicar conocimientos de:
+
+* Programación Orientada a Objetos.
+* Java.
+* JavaFX.
+* Bases de datos.
+* SQL.
+* Arquitectura de software.
+* Patrones de diseño.
+* Control de versiones.
+
+---
+
+## Tecnologías principales
+
+```text
+Java 21
+   │
+   ├── JavaFX
+   │     └── FXML
+   │           └── Scene Builder
+   │
+   ├── Maven
+   │
+   ├── MySQL
+   │     └── phpMyAdmin
+   │
+   └── Git / GitHub
+```
+
+---
+
+## Estado del proyecto
+
+🟢 **Proyecto académico en desarrollo.**
+
+El proyecto puede continuar evolucionando mediante la incorporación de nuevas funcionalidades, mejoras de seguridad, optimización de consultas y ampliación de los módulos de gestión ambiental.
+
+---
+
+## EcoGrow
+
+> **Tecnología al servicio de la conservación y la reforestación. :)**
