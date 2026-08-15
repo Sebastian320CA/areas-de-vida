@@ -1,4 +1,4 @@
- ## Arquitectura y Patrones de Diseño Aplicados
+ ## Sistema Areas de Vida aplicando patrones de diseño Singleton y Facade
 
 Para garantizar que el sistema sea fácil de mantener y escalar, se implementaron dos patrones de diseño estructurales y de creación 
 fundamentales en el desarrollo de software profesional:
