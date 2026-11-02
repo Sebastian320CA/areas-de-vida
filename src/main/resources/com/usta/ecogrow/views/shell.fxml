@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usta.ecogrow.controllers.ShellController" styleClass="shell">
+    <left>
+        <VBox styleClass="sidebar" prefWidth="258" minWidth="258" maxWidth="258" spacing="6">
+            <HBox styleClass="brand" alignment="CENTER_LEFT" spacing="10">
+                <Label text="EcoGrow" userData="icon:leaf:26" styleClass="brand-title"/>
+            </HBox>
+            <Label styleClass="sidebar-section" text="MENÚ"/>
+            <VBox fx:id="navBox" spacing="4"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label styleClass="sidebar-footer" wrapText="true" text="Tecnología al servicio de la conservación."/>
+        </VBox>
+    </left>
+    <center>
+        <VBox>
+            <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="14">
+                <Label fx:id="pageTitle" styleClass="topbar-title" text="Panel general"/>
+                <Label fx:id="modeLabel" styleClass="chip" text="Edición"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="themeButton" onAction="#onToggleTheme" styleClass="icon-button"/>
+                <HBox styleClass="user-chip" alignment="CENTER_LEFT" spacing="10">
+                    <Label fx:id="avatarLabel" styleClass="avatar" text="EG" alignment="CENTER" minWidth="36" minHeight="36"/>
+                    <VBox spacing="0">
+                        <Label fx:id="userNameLabel" styleClass="user-name" text="Usuario"/>
+                        <Label fx:id="userRoleLabel" styleClass="user-role" text="Rol"/>
+                    </VBox>
+                </HBox>
+                <Button text="Salir" onAction="#onLogout" userData="icon:logout" styleClass="btn-ghost"/>
+            </HBox>
+            <StackPane fx:id="content" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+</BorderPane>

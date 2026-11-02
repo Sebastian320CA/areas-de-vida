@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usta.ecogrow.controllers.DashboardController" fitToWidth="true" hbarPolicy="NEVER" styleClass="clear-scroll">
+    <VBox styleClass="page" spacing="22">
+        <VBox spacing="2">
+            <Label fx:id="greetingLabel" styleClass="page-title" text="Hola"/>
+            <Label fx:id="dateLabel" styleClass="page-subtitle" text=""/>
+        </VBox>
+
+        <FlowPane fx:id="statsPane" hgap="16" vgap="16"/>
+
+        <HBox spacing="22">
+            <VBox styleClass="card" spacing="16" prefWidth="420" minWidth="360" maxWidth="440">
+                <Label styleClass="card-title" text="Áreas por estado de conservación"/>
+                <VBox fx:id="statusBox" spacing="14"/>
+            </VBox>
+            <VBox styleClass="card" spacing="12" HBox.hgrow="ALWAYS">
+                <Label styleClass="card-title" text="Cobertura vegetal promedio por área (%)"/>
+                <BarChart fx:id="coverageChart" legendVisible="false" animated="false" verticalGridLinesVisible="false" prefHeight="300" minHeight="260">
+                    <xAxis><CategoryAxis/></xAxis>
+                    <yAxis><NumberAxis lowerBound="0" upperBound="100" tickUnit="20" autoRanging="false"/></yAxis>
+                </BarChart>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="card" spacing="12">
+            <Label styleClass="card-title" text="Actividad reciente"/>
+            <VBox fx:id="recentBox" spacing="4"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

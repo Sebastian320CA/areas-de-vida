@@ -1,0 +1,401 @@
+/* =====================================================================
+   EcoGrow · tema visual (JavaFX CSS)
+   Paleta: verde bosque + lima, superficies suaves, modo claro y oscuro.
+   El modo oscuro se activa agregando la clase "dark" al nodo raíz.
+   ===================================================================== */
+
+.eco-root {
+    /* ---- tokens (claro) ---- */
+    -eco-bg: #f3f7f3;
+    -eco-surface: #ffffff;
+    -eco-surface-2: #eef4ef;
+    -eco-border: #dbe5dd;
+    -eco-text: #12231a;
+    -eco-muted: #627469;
+    -eco-primary: #15803d;
+    -eco-primary-hover: #166534;
+    -eco-primary-soft: #dcfce7;
+    -eco-accent: #65a30d;
+    -eco-danger: #dc2626;
+    -eco-danger-soft: #fee2e2;
+    -eco-warning: #d97706;
+    -eco-info: #0369a1;
+    -eco-sidebar: #0f2a1c;
+    -eco-sidebar-text: #b9d3c3;
+    -eco-sidebar-hover: #17402b;
+    -eco-sidebar-active: #1d5a3a;
+    -eco-shadow: rgba(16, 40, 26, 0.10);
+
+    /* ---- base de Modena (afecta controles que no estilizamos a mano) ---- */
+    -fx-base: #ffffff;
+    -fx-background: -eco-bg;
+    -fx-control-inner-background: -eco-surface;
+    -fx-accent: -eco-primary;
+    -fx-focus-color: -eco-primary;
+    -fx-faint-focus-color: transparent;
+    -fx-selection-bar: -eco-primary-soft;
+    -fx-selection-bar-non-focused: -eco-surface-2;
+
+    -fx-background-color: -eco-bg;
+    -fx-font-family: "Inter", "Segoe UI", "Noto Sans", "Cantarell", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+.eco-root.dark {
+    -eco-bg: #0d1511;
+    -eco-surface: #15211b;
+    -eco-surface-2: #1b2b23;
+    -eco-border: #263a2f;
+    -eco-text: #e6f0e9;
+    -eco-muted: #93a99b;
+    -eco-primary: #34d399;
+    -eco-primary-hover: #6ee7b7;
+    -eco-primary-soft: #14392a;
+    -eco-accent: #a3e635;
+    -eco-danger: #f87171;
+    -eco-danger-soft: #3b1a1a;
+    -eco-warning: #fbbf24;
+    -eco-info: #38bdf8;
+    -eco-sidebar: #09130e;
+    -eco-sidebar-text: #9db9a8;
+    -eco-sidebar-hover: #12251b;
+    -eco-sidebar-active: #174631;
+    -eco-shadow: rgba(0, 0, 0, 0.45);
+
+    -fx-base: #1b2b23;
+    -fx-background: -eco-bg;
+    -fx-control-inner-background: -eco-surface;
+    -fx-selection-bar: #1f4a37;
+    -fx-selection-bar-non-focused: -eco-surface-2;
+}
+
+.label, .hyperlink {
+    -fx-text-fill: -eco-text;
+}
+
+.shell { -fx-background-color: -eco-bg; }
+
+/* ============================ Iconos ============================ */
+.icon { -fx-background-color: -eco-muted; }
+.btn-primary .icon, .btn-danger .icon { -fx-background-color: white; }
+.eco-root.dark .btn-primary .icon { -fx-background-color: #06281c; }
+.btn-danger-outline .icon { -fx-background-color: -eco-danger; }
+.btn-ghost:hover .icon, .icon-button:hover .icon { -fx-background-color: -eco-primary; }
+
+/* ============================ Botones ============================ */
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 10;
+    -fx-padding: 9 16;
+    -fx-font-weight: 600;
+}
+.btn-primary {
+    -fx-background-color: -eco-primary;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(21, 128, 61, 0.30), 10, 0, 0, 3);
+}
+.btn-primary:hover { -fx-background-color: -eco-primary-hover; }
+.btn-primary:pressed { -fx-translate-y: 1; }
+.btn-primary:disabled { -fx-opacity: 0.55; -fx-effect: none; }
+.btn-primary .text, .btn-danger .text { -fx-fill: white; }
+.eco-root.dark .btn-primary { -fx-text-fill: #06281c; }
+.eco-root.dark .btn-primary .text { -fx-fill: #06281c; }
+.btn-large { -fx-padding: 12 22; -fx-font-size: 15px; }
+
+.btn-ghost {
+    -fx-background-color: transparent;
+    -fx-text-fill: -eco-text;
+    -fx-border-color: -eco-border;
+    -fx-border-radius: 10;
+}
+.btn-ghost:hover { -fx-background-color: -eco-surface-2; }
+
+.btn-danger-outline {
+    -fx-background-color: transparent;
+    -fx-text-fill: -eco-danger;
+    -fx-border-color: -eco-danger;
+    -fx-border-radius: 10;
+}
+.btn-danger-outline .text { -fx-fill: -eco-danger; }
+.btn-danger-outline:hover { -fx-background-color: -eco-danger-soft; }
+.btn-danger-outline:disabled { -fx-opacity: 0.35; }
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20;
+    -fx-padding: 8;
+}
+.icon-button:hover { -fx-background-color: -eco-surface-2; }
+
+.hyperlink { -fx-text-fill: -eco-primary; -fx-font-weight: 600; -fx-border-color: transparent; }
+.hyperlink:hover { -fx-underline: true; }
+
+/* ============================ Campos ============================ */
+.text-field, .password-field, .text-area .content {
+    -fx-background-color: -eco-surface;
+    -fx-text-fill: -eco-text;
+    -fx-prompt-text-fill: derive(-eco-muted, 25%);
+    -fx-background-radius: 10;
+    -fx-border-color: -eco-border;
+    -fx-border-radius: 10;
+    -fx-padding: 10 12;
+}
+.text-field:focused, .password-field:focused {
+    -fx-border-color: -eco-primary;
+    -fx-effect: dropshadow(gaussian, rgba(21, 128, 61, 0.22), 8, 0, 0, 0);
+}
+.text-area {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.text-area .content {
+    -fx-background-insets: 0;
+    -fx-padding: 8 10;
+}
+.text-area:focused .content { -fx-border-color: -eco-primary; }
+.text-area .scroll-pane { -fx-background-color: transparent; }
+
+.search-field {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 9 16;
+}
+
+.invalid, .invalid.text-field, .invalid.password-field {
+    -fx-border-color: -eco-danger;
+    -fx-effect: dropshadow(gaussian, rgba(220, 38, 38, 0.25), 8, 0, 0, 0);
+}
+.text-area.invalid .content { -fx-border-color: -eco-danger; }
+
+.field-label { -fx-font-size: 12px; -fx-font-weight: 700; -fx-text-fill: -eco-muted; }
+
+/* ComboBox / DatePicker */
+.combo-box-base {
+    -fx-background-color: -eco-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: -eco-border;
+    -fx-border-radius: 10;
+}
+.combo-box-base:focused { -fx-border-color: -eco-primary; }
+.combo-box-base .text-field,
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: none;
+    -fx-padding: 9 12;
+}
+.combo-box-base .text-field:focused { -fx-border-color: transparent; -fx-effect: none; }
+.combo-box-base > .arrow-button { -fx-background-color: transparent; -fx-padding: 0 12 0 4; }
+.combo-box-base > .arrow-button > .arrow { -fx-background-color: -eco-muted; }
+.combo-box .list-cell { -fx-padding: 9 12; -fx-text-fill: -eco-text; -fx-background-color: transparent; }
+.combo-box-popup > .list-view {
+    -fx-background-color: -eco-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: -eco-border;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, -eco-shadow, 18, 0, 0, 6);
+}
+.combo-box-popup .list-cell { -fx-text-fill: -eco-text; -fx-padding: 9 12; }
+.combo-box-popup .list-cell:filled:hover,
+.combo-box-popup .list-cell:filled:selected { -fx-background-color: -eco-primary-soft; -fx-text-fill: -eco-text; }
+.date-picker-popup { -fx-background-color: -eco-surface; -fx-border-color: -eco-border; -fx-background-radius: 10; -fx-border-radius: 10; }
+
+/* ============================ Layout general ============================ */
+.page { -fx-padding: 28 32 28 32; }
+.page-title { -fx-font-size: 26px; -fx-font-weight: 800; -fx-text-fill: -eco-text; }
+.page-subtitle { -fx-font-size: 14px; -fx-text-fill: -eco-muted; }
+
+.card {
+    -fx-background-color: -eco-surface;
+    -fx-background-radius: 16;
+    -fx-border-color: -eco-border;
+    -fx-border-radius: 16;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, -eco-shadow, 16, 0, 0, 4);
+}
+.card-title { -fx-font-size: 16px; -fx-font-weight: 700; -fx-text-fill: -eco-text; }
+.form-card { -fx-padding: 22; }
+.form-fields { -fx-padding: 2 6 2 2; }
+.count-label { -fx-font-size: 12px; -fx-text-fill: -eco-muted; }
+
+.clear-scroll, .clear-scroll > .viewport { -fx-background-color: transparent; -fx-background: transparent; }
+.scroll-bar { -fx-background-color: transparent; }
+.scroll-bar > .thumb { -fx-background-color: -eco-border; -fx-background-radius: 8; }
+.scroll-bar > .thumb:hover { -fx-background-color: -eco-muted; }
+.scroll-bar > .increment-button, .scroll-bar > .decrement-button { -fx-padding: 0; -fx-pref-height: 0; -fx-pref-width: 0; }
+.scroll-bar > .increment-button > .increment-arrow, .scroll-bar > .decrement-button > .decrement-arrow { -fx-padding: 0; }
+
+/* ============================ Sidebar ============================ */
+.sidebar { -fx-background-color: -eco-sidebar; -fx-padding: 22 14 18 14; }
+.brand { -fx-padding: 4 10 22 10; }
+.brand-title { -fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: 800; -fx-graphic-text-gap: 10; }
+.brand-title .icon { -fx-background-color: #86efac; }
+.sidebar-section { -fx-text-fill: -eco-sidebar-text; -fx-font-size: 11px; -fx-font-weight: 700; -fx-padding: 6 12 6 12; -fx-opacity: 0.7; }
+.sidebar-footer { -fx-text-fill: -eco-sidebar-text; -fx-font-size: 12px; -fx-padding: 0 12 6 12; -fx-opacity: 0.7; }
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -eco-sidebar-text;
+    -fx-alignment: CENTER_LEFT;
+    -fx-graphic-text-gap: 12;
+    -fx-padding: 11 14;
+    -fx-background-radius: 12;
+    -fx-font-weight: 600;
+}
+.nav-button .icon { -fx-background-color: -eco-sidebar-text; }
+.nav-button:hover { -fx-background-color: -eco-sidebar-hover; }
+.nav-button.active { -fx-background-color: -eco-sidebar-active; -fx-text-fill: white; }
+.nav-button.active .icon { -fx-background-color: #86efac; }
+
+/* ============================ Barra superior ============================ */
+.topbar {
+    -fx-background-color: -eco-surface;
+    -fx-border-color: transparent transparent -eco-border transparent;
+    -fx-padding: 14 28;
+}
+.topbar-title { -fx-font-size: 18px; -fx-font-weight: 800; }
+.chip { -fx-font-size: 11px; -fx-font-weight: 700; -fx-padding: 3 10; -fx-background-radius: 20; }
+.chip-edit { -fx-background-color: -eco-primary-soft; -fx-text-fill: -eco-primary; }
+.chip-readonly { -fx-background-color: #fef3c7; -fx-text-fill: #92400e; }
+.eco-root.dark .chip-readonly { -fx-background-color: #3a2e0f; -fx-text-fill: #fbbf24; }
+.user-chip { -fx-padding: 0 4 0 8; }
+.avatar { -fx-background-color: -eco-primary; -fx-text-fill: white; -fx-font-weight: 800; -fx-background-radius: 20; -fx-font-size: 13px; }
+.eco-root.dark .avatar { -fx-text-fill: #06281c; }
+.user-name { -fx-font-weight: 700; -fx-font-size: 13px; }
+.user-role { -fx-font-size: 11px; -fx-text-fill: -eco-muted; }
+
+/* ============================ Tablas ============================ */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-table-cell-border-color: transparent;
+}
+.table-view .column-header-background { -fx-background-color: transparent; }
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: -eco-surface-2;
+    -fx-border-color: transparent;
+    -fx-size: 40;
+}
+.table-view .column-header .label { -fx-text-fill: -eco-muted; -fx-font-size: 12px; -fx-font-weight: 700; -fx-alignment: CENTER_LEFT; }
+.table-view .column-header-background .column-header:first-child,
+.table-view .column-header:first-child { -fx-background-radius: 10 0 0 10; }
+.table-view .column-header:last-visible { -fx-background-radius: 0 10 10 0; }
+.table-row-cell { -fx-background-color: transparent; -fx-cell-size: 46; -fx-border-color: transparent transparent -eco-border transparent; }
+.table-row-cell:odd { -fx-background-color: transparent; }
+.table-row-cell:hover { -fx-background-color: -eco-surface-2; }
+.table-row-cell:selected { -fx-background-color: -eco-primary-soft; }
+.table-row-cell:selected .table-cell { -fx-text-fill: -eco-text; }
+.table-cell { -fx-text-fill: -eco-text; -fx-alignment: CENTER_LEFT; -fx-padding: 0 12; -fx-border-color: transparent; }
+.table-view .placeholder .label { -fx-text-fill: -eco-muted; }
+
+/* ============================ Badges ============================ */
+.badge { -fx-font-size: 11px; -fx-font-weight: 700; -fx-padding: 3 10; -fx-background-radius: 20; }
+.badge-critical   { -fx-background-color: #fee2e2; -fx-text-fill: #991b1b; }
+.badge-endangered { -fx-background-color: #ffedd5; -fx-text-fill: #9a3412; }
+.badge-at-risk    { -fx-background-color: #fef3c7; -fx-text-fill: #92400e; }
+.badge-vulnerable { -fx-background-color: #fef9c3; -fx-text-fill: #854d0e; }
+.badge-stable     { -fx-background-color: #dcfce7; -fx-text-fill: #166534; }
+.badge-improving  { -fx-background-color: #cffafe; -fx-text-fill: #155e75; }
+.badge-role-admin     { -fx-background-color: #ede9fe; -fx-text-fill: #5b21b6; }
+.badge-role-authority { -fx-background-color: #dbeafe; -fx-text-fill: #1e40af; }
+.badge-role-owner     { -fx-background-color: #dcfce7; -fx-text-fill: #166534; }
+
+/* ============================ Dashboard ============================ */
+.stat-card { -fx-padding: 18; }
+.stat-icon { -fx-background-radius: 14; }
+.stat-title { -fx-font-size: 12px; -fx-font-weight: 700; -fx-text-fill: -eco-muted; }
+.stat-value { -fx-font-size: 26px; -fx-font-weight: 800; }
+.stat-hint { -fx-font-size: 12px; -fx-text-fill: -eco-muted; }
+
+.tone-green { -fx-background-color: #dcfce7; }
+.tone-green .icon { -fx-background-color: #15803d; }
+.tone-lime  { -fx-background-color: #ecfccb; }
+.tone-lime .icon { -fx-background-color: #4d7c0f; }
+.tone-teal  { -fx-background-color: #ccfbf1; }
+.tone-teal .icon { -fx-background-color: #0f766e; }
+.tone-amber { -fx-background-color: #fef3c7; }
+.tone-amber .icon { -fx-background-color: #b45309; }
+.tone-sky   { -fx-background-color: #e0f2fe; }
+.tone-sky .icon { -fx-background-color: #0369a1; }
+
+.row-label { -fx-font-size: 13px; -fx-text-fill: -eco-muted; }
+.row-value { -fx-font-weight: 800; }
+.row-title { -fx-font-weight: 700; }
+.row-sub { -fx-font-size: 12px; -fx-text-fill: -eco-muted; }
+.recent-row { -fx-padding: 10 4; -fx-border-color: transparent transparent -eco-border transparent; }
+.recent-row .icon { -fx-background-color: -eco-primary; }
+.empty-hint { -fx-text-fill: -eco-muted; }
+
+.status-bar { -fx-pref-height: 10; }
+.status-bar > .track { -fx-background-color: -eco-surface-2; -fx-background-radius: 6; -fx-background-insets: 0; }
+.status-bar > .bar { -fx-background-radius: 6; -fx-background-insets: 0; -fx-padding: 5; }
+.bar-critical   > .bar { -fx-background-color: #dc2626; }
+.bar-endangered > .bar { -fx-background-color: #ea580c; }
+.bar-at-risk    > .bar { -fx-background-color: #d97706; }
+.bar-vulnerable > .bar { -fx-background-color: #ca8a04; }
+.bar-stable     > .bar { -fx-background-color: #16a34a; }
+.bar-improving  > .bar { -fx-background-color: #0891b2; }
+
+.chart { -fx-background-color: transparent; }
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-horizontal-grid-lines { -fx-stroke: -eco-border; }
+.chart-bar { -fx-bar-fill: -eco-primary; -fx-background-radius: 8 8 0 0; }
+.axis { -fx-tick-label-fill: -eco-muted; }
+.axis-tick-mark, .axis-minor-tick-mark { -fx-stroke: transparent; }
+.axis:left, .axis:bottom { -fx-border-color: transparent; }
+
+/* ============================ Toasts ============================ */
+.toast {
+    -fx-background-color: -eco-surface;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: -eco-border;
+    -fx-padding: 14 18;
+    -fx-effect: dropshadow(gaussian, -eco-shadow, 22, 0, 0, 8);
+}
+.toast-text { -fx-font-weight: 600; }
+.toast-success { -fx-border-color: -eco-primary; }
+.toast-success .icon { -fx-background-color: -eco-primary; }
+.toast-error { -fx-border-color: -eco-danger; }
+.toast-error .icon { -fx-background-color: -eco-danger; }
+.toast-info .icon { -fx-background-color: -eco-info; }
+
+/* ============================ Autenticación ============================ */
+.auth-root { -fx-background-color: -eco-surface; }
+.hero {
+    -fx-background-color: linear-gradient(to bottom right, #052e16 0%, #14532d 55%, #3f6212 100%);
+}
+.hero-circle { -fx-fill: rgba(255, 255, 255, 0.05); }
+.hero-circle-strong { -fx-fill: rgba(163, 230, 53, 0.12); }
+.hero-brand { -fx-text-fill: white; -fx-font-size: 30px; -fx-font-weight: 800; -fx-graphic-text-gap: 12; }
+.hero-brand .icon { -fx-background-color: #bef264; }
+.hero-title { -fx-text-fill: white; -fx-font-size: 34px; -fx-font-weight: 800; -fx-line-spacing: 4; }
+.hero-point { -fx-text-fill: #d1fae5; -fx-font-size: 15px; -fx-graphic-text-gap: 12; }
+.hero-point .icon { -fx-background-color: #bef264; }
+
+.auth-panel { -fx-background-color: -eco-surface; -fx-padding: 40; }
+.auth-title { -fx-font-size: 28px; -fx-font-weight: 800; -fx-graphic-text-gap: 10; }
+.auth-title .icon { -fx-background-color: -eco-primary; }
+.auth-subtitle { -fx-text-fill: -eco-muted; }
+.auth-card {
+    -fx-background-color: -eco-surface;
+    -fx-background-radius: 20;
+    -fx-padding: 36;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 36, 0, 0, 14);
+}
+.msg { -fx-padding: 10 14; -fx-background-radius: 10; -fx-font-weight: 600; }
+.msg-error { -fx-background-color: -eco-danger-soft; -fx-text-fill: -eco-danger; }
+.msg-info { -fx-background-color: -eco-primary-soft; -fx-text-fill: -eco-primary; }
+
+/* ============================ Diálogos ============================ */
+.dialog-pane { -fx-background-color: -eco-surface; -fx-font-family: "Inter", "Segoe UI", "Noto Sans", Arial, sans-serif; }
+.dialog-pane > .header-panel { -fx-background-color: -eco-surface; -fx-padding: 22 24 4 24; }
+.dialog-pane > .header-panel .label { -fx-font-size: 18px; -fx-font-weight: 800; }
+.dialog-pane > .content.label { -fx-padding: 6 24 18 24; -fx-text-fill: -eco-muted; }
+.dialog-pane > .button-bar > .container { -fx-background-color: -eco-surface; -fx-padding: 0 18 18 18; }
+.dialog-pane .button { -fx-background-color: transparent; -fx-border-color: -eco-border; -fx-border-radius: 10; -fx-text-fill: -eco-text; }
+.dialog-pane .button:default { -fx-background-color: -eco-primary; -fx-border-color: -eco-primary; -fx-text-fill: white; }
+.dialog-pane .button:default .text { -fx-fill: white; }
+.tooltip { -fx-background-color: -eco-sidebar; -fx-text-fill: white; -fx-background-radius: 8; }
