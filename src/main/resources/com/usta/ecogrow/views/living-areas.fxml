@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usta.ecogrow.controllers.LivingAreasController" styleClass="page" spacing="22">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox spacing="2">
+            <Label styleClass="page-title" text="Áreas de vida"/>
+            <Label styleClass="page-subtitle" text="Zonas destinadas a la conservación y la reforestación."/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Buscar…" styleClass="search-field" prefWidth="280"/>
+        <Button fx:id="newButton" text="Nuevo" userData="icon:add" styleClass="btn-primary"/>
+    </HBox>
+
+    <HBox spacing="22" VBox.vgrow="ALWAYS">
+        <VBox styleClass="card" spacing="12" HBox.hgrow="ALWAYS">
+            <TableView fx:id="table" VBox.vgrow="ALWAYS"/>
+            <Label fx:id="countLabel" styleClass="count-label" text="0 registros"/>
+        </VBox>
+
+        <VBox fx:id="formPane" styleClass="card,form-card" spacing="16" prefWidth="360" minWidth="360" maxWidth="360">
+            <Label fx:id="formTitle" styleClass="card-title" text="Nuevo registro"/>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="clear-scroll" VBox.vgrow="ALWAYS">
+                <VBox spacing="16" styleClass="form-fields">
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Nombre"/>
+                    <TextField fx:id="nameField" promptText="Ej. Páramo de Rabanal"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Ubicación"/>
+                    <TextField fx:id="locationField" promptText="Municipio, departamento"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Hectáreas"/>
+                    <TextField fx:id="hectaresField" promptText="0.00"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Estado de conservación"/>
+                    <ComboBox fx:id="statusBox" promptText="Selecciona un estado" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Fecha de creación"/>
+                    <DatePicker fx:id="creationDatePicker" maxWidth="Infinity"/>
+                </VBox>
+                </VBox>
+            </ScrollPane>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="deleteButton" text="Eliminar" userData="icon:delete" styleClass="btn-danger-outline"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="saveButton" text="Crear" userData="icon:save" styleClass="btn-primary"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</VBox>

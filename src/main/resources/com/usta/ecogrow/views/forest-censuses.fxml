@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usta.ecogrow.controllers.ForestCensusesController" styleClass="page" spacing="22">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <VBox spacing="2">
+            <Label styleClass="page-title" text="Censos forestales"/>
+            <Label styleClass="page-subtitle" text="Seguimiento del estado y la cobertura vegetal de cada área."/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Buscar…" styleClass="search-field" prefWidth="280"/>
+        <Button fx:id="newButton" text="Nuevo" userData="icon:add" styleClass="btn-primary"/>
+    </HBox>
+
+    <HBox spacing="22" VBox.vgrow="ALWAYS">
+        <VBox styleClass="card" spacing="12" HBox.hgrow="ALWAYS">
+            <TableView fx:id="table" VBox.vgrow="ALWAYS"/>
+            <Label fx:id="countLabel" styleClass="count-label" text="0 registros"/>
+        </VBox>
+
+        <VBox fx:id="formPane" styleClass="card,form-card" spacing="16" prefWidth="360" minWidth="360" maxWidth="360">
+            <Label fx:id="formTitle" styleClass="card-title" text="Nuevo registro"/>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="clear-scroll" VBox.vgrow="ALWAYS">
+                <VBox spacing="16" styleClass="form-fields">
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Fecha del censo"/>
+                    <DatePicker fx:id="datePicker" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Área de vida"/>
+                    <ComboBox fx:id="areaBox" promptText="Selecciona un área" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Cobertura vegetal (%)"/>
+                    <TextField fx:id="coverageField" promptText="0 – 100"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Estado del ecosistema"/>
+                    <ComboBox fx:id="stateBox" promptText="Selecciona un estado" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="6">
+                    <Label styleClass="field-label" text="Observaciones"/>
+                    <TextArea fx:id="observationsArea" promptText="Notas del censo…" prefRowCount="4" wrapText="true"/>
+                </VBox>
+                </VBox>
+            </ScrollPane>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="deleteButton" text="Eliminar" userData="icon:delete" styleClass="btn-danger-outline"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="saveButton" text="Crear" userData="icon:save" styleClass="btn-primary"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</VBox>

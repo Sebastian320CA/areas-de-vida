@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:id="background" fx:controller="com.usta.ecogrow.controllers.SignUpController" styleClass="hero">
+    <Pane mouseTransparent="true">
+        <Circle centerX="1180" centerY="80" radius="260" styleClass="hero-circle"/>
+        <Circle centerX="80" centerY="700" radius="280" styleClass="hero-circle"/>
+    </Pane>
+    <VBox styleClass="auth-card" spacing="18" maxWidth="620" maxHeight="-Infinity" alignment="CENTER_LEFT">
+        <VBox spacing="4">
+            <Label text="Crear cuenta" userData="icon:leaf:26" styleClass="auth-title"/>
+            <Label styleClass="auth-subtitle" text="Regístrate como autoridad ambiental o propietario."/>
+        </VBox>
+
+        <GridPane hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label styleClass="field-label" text="Nombre completo"/>
+                <TextField fx:id="nameField" promptText="Nombre y apellido"/>
+            </VBox>
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label styleClass="field-label" text="Correo electrónico"/>
+                <TextField fx:id="emailField" promptText="correo@ejemplo.com"/>
+            </VBox>
+            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label styleClass="field-label" text="Tipo de usuario"/>
+                <ComboBox fx:id="roleBox" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label styleClass="field-label" text="Documento"/>
+                <TextField fx:id="documentField" promptText="Número de documento"/>
+            </VBox>
+            <VBox spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <Label styleClass="field-label" text="Teléfono"/>
+                <TextField fx:id="phoneField" promptText="Número de contacto"/>
+            </VBox>
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label styleClass="field-label" text="Contraseña"/>
+                <PasswordField fx:id="passwordField" promptText="Mínimo 8, letras y números"/>
+            </VBox>
+            <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Label styleClass="field-label" text="Confirmar contraseña"/>
+                <PasswordField fx:id="confirmField" promptText="Repite la contraseña" onAction="#onCreate"/>
+            </VBox>
+        </GridPane>
+
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <Button text="Volver" onAction="#onBack" styleClass="btn-ghost"/>
+            <Button fx:id="createButton" text="Crear cuenta" onAction="#onCreate" styleClass="btn-primary,btn-large" defaultButton="true"/>
+        </HBox>
+    </VBox>
+</StackPane>
