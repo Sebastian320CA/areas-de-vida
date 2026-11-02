@@ -1,408 +1,278 @@
-# EcoGrow - Sistema de Gestión de Reforestación y Áreas de Vida
+# 🌱 EcoGrow — Reforestation & Living Areas Management System
 
-![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge\&logo=openjdk\&logoColor=white)
-![JavaFX](https://img.shields.io/badge/JavaFX-21-5382A1?style=for-the-badge\&logo=java\&logoColor=white)
-![Scene Builder](https://img.shields.io/badge/Scene%20Builder-FXML-007ACC?style=for-the-badge)
-![Design Patterns](https://img.shields.io/badge/Design%20Patterns-GoF-8E44AD?style=for-the-badge)
-![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)
-![phpMyAdmin](https://img.shields.io/badge/phpMyAdmin-Database%20Management-6C78AF?style=for-the-badge\&logo=phpmyadmin\&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge\&logo=linux\&logoColor=black)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)
+![Java](https://img.shields.io/badge/Java-25_LTS-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![JavaFX](https://img.shields.io/badge/JavaFX-25-5382A1?style=for-the-badge&logo=java&logoColor=white)
+![FXML](https://img.shields.io/badge/FXML-Scene_Builder-007ACC?style=for-the-badge)
+![Maven](https://img.shields.io/badge/Maven-3.9+-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL%20%2F%20MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![HikariCP](https://img.shields.io/badge/HikariCP-Connection_Pool-2C3E50?style=for-the-badge)
+![BCrypt](https://img.shields.io/badge/BCrypt-Password_Hashing-16A34A?style=for-the-badge)
+![Design Patterns](https://img.shields.io/badge/Design_Patterns-GoF-8E44AD?style=for-the-badge)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
+**EcoGrow** is a desktop application that supports environmental management and the tracking of reforestation and conservation processes across *living areas*.
 
-**EcoGrow** es una aplicación de escritorio desarrollada para apoyar la gestión ambiental y el seguimiento de procesos de reforestación y conservación de áreas de vida.
+It centralizes user management, living areas, tree taxonomy, planting activities, forest censuses and legal documentation in a single, modern interface with a dashboard, light/dark themes and role-based access control.
 
-El sistema permite centralizar diferentes procesos relacionados con la gestión de usuarios, áreas de vida, taxonomía de árboles, actividades de plantación, censos forestales y documentación asociada.
+The project started as an academic capstone applying software engineering principles, object-oriented programming, database access and **GoF (Gang of Four)** design patterns. Version 2.0 is a full modernization of the original: new UI, secure authentication, connection pooling, asynchronous data access and a cleaner architecture.
 
-El proyecto fue desarrollado como proyecto integrador académico, aplicando principios de ingeniería de software, programación orientada a objetos, acceso a bases de datos y patrones de diseño **GoF (Gang of Four)**.
-
----
-
-## Objetivos
-
-Los principales objetivos de EcoGrow son:
-
-* Gestionar usuarios y sus respectivos roles dentro del sistema.
-* Administrar áreas de vida destinadas a la conservación.
-* Registrar y consultar información relacionada con especies de árboles.
-* Gestionar actividades de plantación y reforestación.
-* Registrar censos forestales para realizar seguimiento al estado de las áreas.
-* Gestionar documentación relacionada con las áreas de vida.
-* Mantener organizada la información mediante una base de datos relacional.
-* Aplicar patrones de diseño para mejorar la organización y mantenibilidad del software.
+<!-- Add screenshots here, e.g.:
+![Dashboard](docs/screenshots/dashboard.png)
+![Living areas](docs/screenshots/living-areas.png)
+-->
 
 ---
 
-## Características principales
+## ✨ Features
 
-### Autenticación y gestión de usuarios
+### 📊 Dashboard
+- Key metrics: living areas, total hectares, trees planted, registered species, average vegetation coverage and documents.
+- Areas grouped by conservation status.
+- Average vegetation coverage per area (bar chart).
+- Latest planting activities.
 
-El sistema cuenta con un módulo de usuarios que permite gestionar las credenciales y los diferentes roles de acceso.
+### 🗺️ Living areas
+Name, location, size in hectares, conservation status (*Critical, Endangered, At risk, Vulnerable, Stable, Improving*) and creation date.
 
-Entre sus funcionalidades se encuentran:
+### 🌳 Tree taxonomy
+Catalog of species with common name, scientific name, genus and family.
 
-* Inicio de sesión.
-* Registro de usuarios.
-* Gestión de roles.
-* Control de acceso a diferentes módulos.
+### 🌱 Planting activities
+Planting, replanting, maintenance, irrigation, pruning and monitoring. Each activity links an area, an optional species, a date, the number of trees planted and a description.
 
-### Gestión de áreas de vida
+### 📋 Forest censuses
+Vegetation coverage (%), ecosystem state and field observations per area and date.
 
-Permite administrar las áreas destinadas a la conservación y reforestación.
+### 📄 Documentation
+Official documents, issuing authority, document number, issue date and the associated living area.
 
-Se puede almacenar información relacionada con:
+### 👥 Users and roles
+| Role | Permissions |
+|---|---|
+| **Administrator** | Full access + user management |
+| **Environmental authority** | Create, edit and delete records |
+| **Owner** | Read-only |
 
-* Nombre del área.
-* Ubicación.
-* Dimensiones.
-* Estado de conservación.
-* Información asociada a la documentación del área.
+Public sign-up only allows *Environmental authority* and *Owner*. Administrators can only be created by another administrator.
 
-###  Taxonomía de árboles
-
-El sistema permite registrar y consultar información relacionada con las especies de árboles utilizadas en los procesos de reforestación.
-
-La información contempla diferentes niveles taxonómicos como:
-
-* Especie.
-* Género.
-* Familia.
-* Nombre común.
-
-### Actividades de plantación
-
-Permite registrar las actividades de reforestación realizadas en las diferentes áreas de vida.
-
-Cada actividad puede relacionar:
-
-* El árbol o especie utilizada.
-* El área donde se realizó la plantación.
-* La fecha de la actividad.
-* Información asociada a la actividad.
-
-### Censos forestales
-
-Permite registrar información relacionada con el seguimiento y estado de las áreas forestales.
-
-Entre los datos gestionados se encuentran métricas relacionadas con:
-
-* Cobertura vegetal.
-* Estado general del área.
-* Seguimiento de las condiciones del ecosistema.
-
-### Documentación
-
-Permite gestionar documentación relacionada con las áreas de vida, incluyendo información sobre:
-
-* Documentos oficiales.
-* Autoridades emisoras.
-* Información legal.
-* Soportes relacionados con la protección de las áreas.
+### 🎨 User experience
+- Resizable window with a sidebar layout.
+- Searchable and sortable tables.
+- Inline form validation and non-blocking toast notifications.
+- Light and dark themes (the choice is remembered).
+- Vector icons that follow the theme.
+- Database work runs off the UI thread, so the interface never freezes.
 
 ---
 
-## Arquitectura y patrones de diseño
+## 🏗️ Architecture & design patterns
 
-Para organizar el código y facilitar su mantenimiento, el proyecto utiliza una arquitectura basada en la separación de responsabilidades entre:
-
-* Controladores.
-* Modelos.
-* DAO.
-* Fachadas.
-* Utilidades.
-* Vistas.
-
-Además, se aplican patrones de diseño **GoF (Gang of Four)**.
-
-### 1. Singleton
-
-El patrón **Singleton** se utiliza en la gestión de recursos que requieren una instancia controlada, particularmente en componentes relacionados con la conexión y administración de la base de datos.
-
-En el proyecto existe la clase:
+The code follows a separation of concerns between **controllers, models, DAOs, facades, UI helpers and utilities**.
 
 ```text
-ConnectionManager
+com.usta.ecogrow
+├── App / Launcher          JavaFX entry points
+├── config/                 AppConfig (properties + environment variables)
+├── db/                     Database (Singleton + HikariCP) · Bootstrap (schema + seed)
+├── security/               PasswordHasher (BCrypt)
+├── model/                  Immutable records + enums (Role, ConservationStatus)
+├── dao/                    CrudDao<T> + one DAO per table (plain JDBC)
+├── facade/                 UserFacade, DashboardFacade
+├── ui/                     Navigator, Session, Toast, Icons, Form, Dialogs, Badges
+├── util/                   Async (virtual threads), Fmt, Errors
+└── controllers/            CrudController<T> base + one controller per screen
 ```
 
-El objetivo es centralizar la gestión de la conexión y evitar que diferentes partes de la aplicación implementen de forma independiente la lógica de conexión a la base de datos.
+### GoF patterns
 
-### 2. Facade
+| Pattern | Where | Purpose |
+|---|---|---|
+| **Singleton** | `Database`, `Session`, `Navigator` | One controlled instance of the connection pool, the authenticated user and the view router. |
+| **Facade** | `UserFacade`, `DashboardFacade` | A simplified API for the UI: authentication, registration and dashboard metrics without exposing DAOs, validation or hashing. |
+| **Template Method** | `CrudController<T>` | Defines the flow of every management screen (load, filter, select, validate, save, delete); each screen only implements the specific steps. |
 
-El patrón **Facade (Fachada)** permite proporcionar una interfaz simplificada para interactuar con diferentes componentes del sistema.
+Other principles applied: OOP, separation of concerns, DRY, encapsulation, abstraction, DAO pattern and separation between UI and application logic.
 
-En el proyecto existe el paquete:
+---
 
-```text
-facade/
+## 🧰 Tech stack
+
+| Technology | Purpose |
+|---|---|
+| **Java 25 (LTS)** | Language (records, pattern matching, virtual threads) |
+| **JavaFX 25** | Desktop UI toolkit |
+| **FXML + Scene Builder** | Declarative, visually editable views |
+| **JavaFX CSS** | Custom theme with light/dark tokens |
+| **MySQL / MariaDB** | Relational database |
+| **MySQL Connector/J** | JDBC driver |
+| **HikariCP** | JDBC connection pool |
+| **BCrypt** (`at.favre.lib:bcrypt`) | Password hashing |
+| **SLF4J Simple** | Logging for the pool |
+| **Maven** | Build and dependency management |
+| **Git / GitHub** | Version control |
+| **Arch Linux** | Development environment |
+
+---
+
+## 🗄️ Database
+
+EcoGrow uses **MySQL** (MariaDB also works). The application **creates everything on first launch** — the database, the tables, the initial administrator and optional demo data — so there is no SQL file to import manually.
+
+### Relational model
+
+| Table | Description |
+|---|---|
+| `users` | Accounts, BCrypt password hashes and roles |
+| `living_areas` | Conservation areas (name, location, hectares, status) |
+| `tree_species` | Taxonomy of tree species |
+| `planting_activities` | Planting work, linked to an area and optionally a species |
+| `forest_censuses` | Vegetation coverage and ecosystem state per area |
+| `documentation` | Legal documents, optionally linked to an area |
+
+Foreign keys use `ON DELETE` rules to keep referential integrity: deleting an area removes its plantings and censuses, while its documents are kept without an area. The schema lives in [`src/main/resources/db/schema.sql`](src/main/resources/db/schema.sql).
+
+---
+
+## 🚀 Getting started
+
+### Requirements
+- **JDK 25** (or adjust the Java/JavaFX versions in `pom.xml`)
+- **Maven 3.9+**
+- **MySQL or MariaDB** running locally
+- Git
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/<your-user>/<your-repo>.git
+cd <your-repo>
 ```
 
-y la clase:
+### 2. Prepare the database server
+Make sure MySQL/MariaDB is running and create a user for the app. The database itself is created automatically.
 
-```text
-UserFacade.java
+```sql
+CREATE USER 'ecogrow'@'localhost' IDENTIFIED BY 'your-password';
+GRANT ALL PRIVILEGES ON ecogrow_v2.* TO 'ecogrow'@'localhost';
+FLUSH PRIVILEGES;
 ```
 
-La fachada permite encapsular determinadas operaciones y reducir el acoplamiento entre la interfaz de usuario y la lógica interna del sistema.
+> **Arch Linux:** `sudo pacman -S mariadb`, then `sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql` and `sudo systemctl enable --now mariadb`.
 
----
+### 3. Configure the connection
+Create an `ecogrow.properties` file in the project root (it is git-ignored). Any key from [`src/main/resources/ecogrow.properties`](src/main/resources/ecogrow.properties) can be overridden:
 
-## Tecnologías
+```properties
+db.url=jdbc:mysql://localhost:3306/ecogrow_v2?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+db.user=ecogrow
+db.password=your-password
 
-| Tecnología / Herramienta | Uso                                                 |
-| ------------------------ | --------------------------------------------------- |
-| **Java 21**              | Lenguaje principal de programación                  |
-| **JavaFX**               | Desarrollo de la interfaz gráfica                   |
-| **FXML**                 | Definición de las interfaces gráficas               |
-| **Scene Builder**        | Diseño visual de interfaces JavaFX                  |
-| **MySQL**                | Sistema gestor de base de datos                     |
-| **phpMyAdmin**           | Administración y gestión de la base de datos        |
-| **Maven**                | Gestión de dependencias y construcción del proyecto |
-| **Git**                  | Control de versiones                                |
-| **GitHub**               | Alojamiento y gestión del repositorio               |
-| **Linux / Arch Linux**   | Entorno de desarrollo                               |
+# Initial administrator (created only if no admin exists)
+admin.email=admin@ecogrow.local
+admin.password=EcoGrow2026!
 
----
-
-## Base de datos
-
-EcoGrow utiliza **MySQL** como sistema gestor de base de datos.
-
-La administración de la base de datos se realiza mediante **phpMyAdmin**, facilitando tareas como:
-
-* Creación y modificación de tablas.
-* Administración de registros.
-* Gestión de relaciones.
-* Ejecución de consultas SQL.
-* Importación y exportación de bases de datos.
-
-El proyecto incluye el archivo:
-
-```text
-ecogrow (1).sql
+# Load demo data when the database is empty
+seed.demo=true
 ```
 
-que contiene la estructura y los datos correspondientes a la base de datos del proyecto.
+Environment variables also work: `ECOGROW_DB_URL`, `ECOGROW_DB_USER`, `ECOGROW_DB_PASSWORD`, `ECOGROW_ADMIN_EMAIL`, `ECOGROW_ADMIN_PASSWORD`, `ECOGROW_SEED_DEMO`.
 
-### Modelo relacional
+### 4. Run
+```bash
+mvn clean javafx:run
+```
 
-La base de datos está organizada mediante diferentes entidades relacionadas entre sí y utiliza claves foráneas para mantener la integridad referencial.
+From an IDE, run `com.usta.ecogrow.Launcher` (not `App`) to avoid the *"JavaFX runtime components are missing"* error.
 
-Principales tablas:
+### 5. Sign in
+| | |
+|---|---|
+| **Email** | `admin@ecogrow.local` |
+| **Password** | `EcoGrow2026!` |
 
-* **`users`** — Gestión de usuarios, credenciales y roles.
-* **`living_areas`** — Información de las áreas de vida.
-* **`tree_taxonomy`** — Información taxonómica de los árboles.
-* **`planting_activities`** — Registro de actividades de plantación.
-* **`forest_censuses`** — Registro de censos forestales.
-* **`documentation`** — Documentación relacionada con las áreas de vida.
-
----
-
-## Interfaz gráfica
-
-La interfaz de usuario está desarrollada utilizando **JavaFX** y **FXML**.
-
-Los archivos FXML permiten separar la definición visual de la interfaz de la lógica implementada en Java.
-
-Para el diseño de las interfaces se utiliza **Scene Builder**, facilitando la creación y edición visual de los componentes JavaFX.
-
-La aplicación contiene diferentes vistas, entre ellas:
-
-* Login.
-* Registro de usuarios.
-* Dashboard.
-* Menú de usuario.
-* Menú de administrador.
-* Gestión de áreas de vida.
-* Gestión de actividades de plantación.
-* Gestión de taxonomía.
-* Censos forestales.
-* Documentación.
+> ⚠️ Change the default administrator password right after the first login.
 
 ---
 
-##  Estructura del proyecto
+## 🎨 Editing the UI with Scene Builder
 
-La estructura principal del código fuente se organiza de la siguiente manera:
+The views are plain FXML files in `src/main/resources/com/usta/ecogrow/views/`, so they can still be edited visually.
+
+1. Open any `.fxml` file in **Scene Builder**.
+2. Load the theme: *Preview ▸ Scene Style Sheets ▸ Add…* → `css/ecogrow.css`.
+3. To add an icon to a button or label, set **Code ▸ User Data** to `icon:add` (or `icon:leaf:28` to set a size). Available icons are listed in `ui/Icons.java`.
+4. Keep every `fx:id` and handler name in sync with its controller. All management screens share the ids defined in `CrudController`: `table`, `searchField`, `newButton`, `saveButton`, `deleteButton`, `formTitle`, `countLabel` and `formPane`.
+
+---
+
+## 🔐 Security
+
+- Passwords are hashed with **BCrypt** (cost 12); plain-text passwords are never stored.
+- All SQL uses **prepared statements**.
+- Login errors do not reveal whether an email exists, and a dummy hash check equalizes response time.
+- Password policy: at least 8 characters, combining letters and numbers.
+- Administrator accounts cannot be self-registered, the last administrator cannot be deleted, and users cannot delete their own account.
+- Database credentials live outside the source code (properties file or environment variables).
+
+---
+
+## 📁 Project structure
 
 ```text
-prubaproyect/
-├── ecogrow (1).sql
-├── effective-pom.xml
+EcoGrow/
 ├── pom.xml
 ├── README.md
-│
-└── src/
-    └── main/
-        └── java/
-            ├── com/
-            │   └── usta/
-            │       ├── App.java
-            │       │
-            │       ├── controllers/
-            │       │   ├── DashBoardController.java
-            │       │   ├── DocumentationController.java
-            │       │   ├── ForestCensusesController.java
-            │       │   ├── FrontPageController.java
-            │       │   ├── LivingAreasController.java
-            │       │   ├── LoginController.java
-            │       │   ├── MenuController.java
-            │       │   ├── PanelController.java
-            │       │   ├── PlantingActivitiesController.java
-            │       │   ├── SingUpController.java
-            │       │   └── TreeTaxonomyController.java
-            │       │
-            │       ├── facade/
-            │       │   └── UserFacade.java
-            │       │
-            │       ├── models/
-            │       │   ├── documentations/
-            │       │   ├── forestCensuses/
-            │       │   ├── livingAreas/
-            │       │   ├── plantingActivities/
-            │       │   ├── treetaxonomy/
-            │       │   └── user/
-            │       │
-            │       ├── utils/
-            │       │   ├── ConnectionManager.java
-            │       │   ├── GenericDao.java
-            │       │   ├── Session.java
-            │       │   └── Window.java
-            │       │
-            │       └── views/
-            │           ├── css/
-            │           │   └── Styles.css
-            │           ├── Images/
-            │           ├── Dashboard.fxml
-            │           ├── Documentation.fxml
-            │           ├── ForestCensuses.fxml
-            │           ├── FrontPage.fxml
-            │           ├── LivingAreas.fxml
-            │           ├── login.fxml
-            │           ├── Panel.fxml
-            │           ├── PlantingActivities.fxml
-            │           ├── SingUp.fxml
-            │           └── tree.fxml
-            │
-            └── module-info.java
-```
-
-## Instalación y ejecución
-
-### Requisitos
-
-Antes de ejecutar el proyecto se recomienda tener instalado:
-
-* Java JDK 21.
-* JavaFX.
-* Maven.
-* MySQL.
-* phpMyAdmin.
-* Git.
-
-### 1. Clonar el repositorio
-
-```bash
-git clone
-```
-
-### 2. Crear la base de datos
-
-Abrir phpMyAdmin y crear/importar la base de datos utilizando el archivo:
-
-```text
-ecogrow (1).sql
-```
-
-### 3. Configurar la conexión
-
-Configurar los parámetros de conexión de acuerdo con el entorno local:
-
-```text
-Host
-Puerto
-Usuario
-Contraseña
-Base de datos
-```
-
-### 4. Compilar el proyecto
-
-Desde la carpeta raíz del proyecto:
-
-```bash
-mvn clean install
-```
-
-### 5. Ejecutar la aplicación
-
-Ejecutar la clase principal:
-
-```text
-com.usta.App
+└── src/main
+    ├── java/com/usta/ecogrow/
+    │   ├── App.java · Launcher.java
+    │   ├── config/ · db/ · security/ · model/
+    │   ├── dao/ · facade/ · ui/ · util/
+    │   └── controllers/
+    └── resources/
+        ├── ecogrow.properties
+        ├── db/                 schema.sql · seed.sql
+        └── com/usta/ecogrow/
+            ├── css/ecogrow.css
+            └── views/          *.fxml
 ```
 
 ---
 
+## 🆕 What's new in 2.0
 
-##  Principios aplicados
-
-Durante el desarrollo se tuvieron en cuenta diferentes principios de programación y diseño de software:
-
-* Programación Orientada a Objetos.
-* Separación de responsabilidades.
-* Reutilización de código.
-* Encapsulamiento.
-* Abstracción.
-* Acceso estructurado a datos mediante DAO.
-* Aplicación de patrones de diseño GoF.
-* Separación entre lógica de aplicación e interfaz gráfica.
+- Complete UI redesign: sidebar navigation, dashboard with charts, light/dark theme, toast notifications, resizable window.
+- Passwords moved from plain text to **BCrypt**.
+- Single shared JDBC connection replaced by a **HikariCP pool**.
+- Automatic schema creation and optional demo data (no manual SQL import).
+- Asynchronous data access with **virtual threads**.
+- Six near-identical controllers replaced by one generic `CrudController<T>`.
+- Models rewritten as immutable **records**.
+- Role-based access control (administrator, authority, owner).
+- Updated dependencies (`mysql-connector-j`, HikariCP, maintained BCrypt library) and Java/JavaFX 25.
 
 ---
 
-## Proyecto académico
+## 🛣️ Roadmap
 
-**EcoGrow** fue desarrollado como proyecto académico integrador con el propósito de aplicar conocimientos de:
-
-* Programación Orientada a Objetos.
-* Java.
-* JavaFX.
-* Bases de datos.
-* SQL.
-* Arquitectura de software.
-* Patrones de diseño.
-* Control de versiones.
+- [ ] Full English localization of the UI.
+- [ ] Export reports to PDF / CSV.
+- [ ] Map view of living areas.
+- [ ] Attach files to documentation records.
+- [ ] Unit and integration tests.
+- [ ] Native installers with `jpackage`.
 
 ---
 
-## Tecnologías principales
+## 🎓 Academic project
 
-```text
-Java 21
-   │
-   ├── JavaFX
-   │     └── FXML
-   │           └── Scene Builder
-   │
-   ├── Maven
-   │
-   ├── MySQL
-   │     └── phpMyAdmin
-   │
-   └── Git / GitHub
-```
+EcoGrow was developed as an integrative academic project to apply knowledge of object-oriented programming, Java, JavaFX, databases and SQL, software architecture, design patterns and version control.
 
 ---
 
-## Estado del proyecto
+## 📄 License
 
-🟢 **Proyecto académico en desarrollo.**
-
-El proyecto puede continuar evolucionando mediante la incorporación de nuevas funcionalidades, mejoras de seguridad, optimización de consultas y ampliación de los módulos de gestión ambiental.
+Add a license of your choice (for example MIT) and reference it here.
 
 ---
 
-## EcoGrow
-
-> **Tecnología al servicio de la conservación y la reforestación. :)**
+> **Technology at the service of conservation and reforestation.** 🌿
